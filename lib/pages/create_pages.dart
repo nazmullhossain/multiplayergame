@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:multiplaygame/widget/custom_button_widget.dart';
 
+import '../utils/socket_io_cliient_utils.dart';
 import '../widget/custom_text_feild_widget.dart';
 
 class CreatePages extends StatefulWidget {
@@ -12,11 +13,22 @@ class CreatePages extends StatefulWidget {
 
 class _CreatePagesState extends State<CreatePages> {
   final TextEditingController _namecontroller=TextEditingController();
+  final SocketIoCliientUtils _socketClient=SocketIoCliientUtils.instance;
   @override
   void dispose() {
     // TODO: implement dispose
     super.dispose();
     _namecontroller.dispose();
+  }
+
+  testing(){
+    _socketClient.socket!.emit("test", "this is working");
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    testing();
   }
   @override
   Widget build(BuildContext context) {

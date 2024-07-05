@@ -8,6 +8,7 @@ class HomePages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size=MediaQuery.of(context).size;
+    int data=0;
     return Scaffold(
       body: Center(
         child: ConstrainedBox(
@@ -31,6 +32,7 @@ class HomePages extends StatelessWidget {
                     text: 'Create', isHome: true,),
                   CustomButtonWidget(onTap: () {
                     Navigator.pushNamed(context, '/join-room');
+
                   },
                     text: 'join', isHome: true,),
                 ],
