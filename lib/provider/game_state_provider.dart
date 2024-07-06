@@ -5,7 +5,7 @@ class GameStateProvider extends ChangeNotifier {
   GameStateModel _gameStateModel = GameStateModel(
       id: "", players: [], isJoin: true, isOver: false, words: []);
 
-  Map<String, dynamic> get getState => _gameStateModel.toJson();
+  Map<String, dynamic> get gameState => _gameStateModel.toJson();
 
   void updateGameState(
       {required id,

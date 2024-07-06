@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:multiplaygame/provider/game_state_provider.dart';
 import 'package:multiplaygame/utils/socket_io_cliient_utils.dart';
 import 'package:provider/provider.dart';
@@ -34,4 +35,20 @@ class SocketMethodUtils {
       }
     });
   }
+  
+  notCorreactGameListeenr(BuildContext context){
+    _socketClient.on("notCorrectGame", (data)=>{
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(data))
+      )
+    });
+  }
+
+  startTime(playerId,gameID){
+    _socketClient.emit("timer",{
+    'playerId':playerId,
+      'gameID':gameID
+    });
+  }
+
 }

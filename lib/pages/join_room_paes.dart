@@ -23,6 +23,7 @@ class _JoinRoomPaesState extends State<JoinRoomPaes> {
     // TODO: implement initState
     super.initState();
     _socketMethodUtils.updateGameListener(context);
+    _socketMethodUtils.notCorreactGameListeenr(context);
   }
 
   @override

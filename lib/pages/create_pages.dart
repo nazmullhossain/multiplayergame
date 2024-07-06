@@ -31,6 +31,7 @@ class _CreatePagesState extends State<CreatePages> {
     // TODO: implement initState
     super.initState();
     socketMethodUtils.updateGameListener(context);
+    socketMethodUtils.notCorreactGameListeenr(context);
   }
   @override
   Widget build(BuildContext context) {

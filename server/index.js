@@ -73,6 +73,9 @@ io.on("connection", (socket)=>{
         }catch(e){
             console.log(e);
         }
+    });
+    socket.on('timer', async({playerId,gameID})=>{
+        console.log("timer started");
     })
     
 })
