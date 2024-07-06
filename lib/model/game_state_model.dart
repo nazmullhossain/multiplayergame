@@ -1,3 +1,24 @@
 class GameStateModel{
+final String id;
+final List players;
+final bool isJoin;
+final bool isOver;
+final List words;
+
+  GameStateModel({
+    required this.id,
+    required this.players,
+    required this.isJoin,
+    required this.isOver,
+    required this.words
+  });
+
+  Map<String ,dynamic>toJson()=>{
+    "id":id,
+    "players":players,
+    "isJoin":isJoin,
+    "words":words,
+    "isOver": isOver,
+  };
 
 }

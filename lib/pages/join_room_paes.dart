@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:multiplaygame/utils/socket_method_utils.dart';
 
 import '../widget/custom_button_widget.dart';
 import '../widget/custom_text_feild_widget.dart';
@@ -13,6 +14,8 @@ class JoinRoomPaes extends StatefulWidget {
 class _JoinRoomPaesState extends State<JoinRoomPaes> {
   TextEditingController _nameController=TextEditingController();
   TextEditingController _gameController=TextEditingController();
+  final SocketMethodUtils _socketMethodUtils=SocketMethodUtils();
+
 
   @override
   void dispose() {
@@ -51,7 +54,9 @@ class _JoinRoomPaesState extends State<JoinRoomPaes> {
                   hintText: 'game id',
                 ),
                 SizedBox(height: 40,),
-                CustomButtonWidget(onTap: (){}, text: "Create")
+                CustomButtonWidget(onTap: (){
+                  _socketMethodUtils.joinGame(_nameController.text,_gameController.text);
+                }, text: "join")
               ],
             ),
           ),
