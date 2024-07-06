@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:multiplaygame/utils/socket_method_utils.dart';
 import 'package:multiplaygame/widget/custom_button_widget.dart';
 
 import '../utils/socket_io_cliient_utils.dart';
@@ -14,6 +15,7 @@ class CreatePages extends StatefulWidget {
 class _CreatePagesState extends State<CreatePages> {
   final TextEditingController _namecontroller=TextEditingController();
   final SocketIoCliientUtils _socketClient=SocketIoCliientUtils.instance;
+  final SocketMethodUtils socketMethodUtils=SocketMethodUtils();
   @override
   void dispose() {
     // TODO: implement dispose
@@ -28,7 +30,7 @@ class _CreatePagesState extends State<CreatePages> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    testing();
+    socketMethodUtils.updateGameListener(context);
   }
   @override
   Widget build(BuildContext context) {
@@ -55,7 +57,10 @@ class _CreatePagesState extends State<CreatePages> {
                   hintText: 'Enter your nick name',
                 ),
                 SizedBox(height: 40,),
-                CustomButtonWidget(onTap: (){}, text: "Create")
+                CustomButtonWidget(onTap: (){
+                  socketMethodUtils.createGame(_namecontroller.text);
+                  _namecontroller.clear();
+                }, text: "Create")
               ],
             ),
           ),
