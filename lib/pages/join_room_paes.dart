@@ -17,6 +17,14 @@ class _JoinRoomPaesState extends State<JoinRoomPaes> {
   final SocketMethodUtils _socketMethodUtils=SocketMethodUtils();
 
 
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _socketMethodUtils.updateGameListener(context);
+  }
+
   @override
   void dispose() {
     // TODO: implement dispose
